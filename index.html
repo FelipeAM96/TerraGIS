@@ -468,9 +468,14 @@
                 </div>
             </div>
             
-            <button onclick="closeWebGIS()" class="text-white hover:text-brand-orange font-semibold flex items-center gap-2 transition-colors bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20">
-                <i data-lucide="x" class="w-5 h-5"></i> <span class="hidden sm:inline">Fechar Plataforma</span>
-            </button>
+            <div class="flex items-center gap-2">
+                <button onclick="toggleWebgisInfo()" class="text-white hover:text-brand-lightOrange font-semibold flex items-center gap-2 transition-colors bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20">
+                    <i data-lucide="info" class="w-5 h-5"></i> <span class="hidden sm:inline">Como Usar</span>
+                </button>
+                <button onclick="closeWebGIS()" class="text-white hover:text-brand-orange font-semibold flex items-center gap-2 transition-colors bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20">
+                    <i data-lucide="x" class="w-5 h-5"></i> <span class="hidden sm:inline">Fechar Plataforma</span>
+                </button>
+            </div>
         </div>
 
         <!-- Área do Mapa -->
@@ -507,6 +512,62 @@
             <div id="info-panel" class="absolute top-4 right-4 w-64 sm:w-80 max-h-[80%] bg-white p-4 rounded-xl shadow-xl z-[1000] overflow-y-auto">
                 <strong class="block mb-3 text-brand-blue border-b border-gray-100 pb-2 text-lg font-bold">Camadas do Projeto</strong>
                 <ul id="polygon-list" class="space-y-3 m-0 p-0 list-none"></ul>
+            </div>
+
+            <!-- Painel de Ajuda / Informativo WebGIS -->
+            <div id="webgis-info-panel" class="absolute inset-0 bg-brand-blue/60 backdrop-blur-sm z-[4000] hidden flex-col justify-center items-center p-4">
+                <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto flex flex-col transform transition-all">
+                    <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50 rounded-t-2xl">
+                        <h2 class="text-2xl font-bold text-brand-blue flex items-center gap-2">
+                            <i data-lucide="help-circle" class="text-brand-orange w-6 h-6"></i> Guia da Plataforma WebGeo
+                        </h2>
+                        <button onclick="toggleWebgisInfo()" class="text-gray-400 hover:text-brand-orange transition-colors">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="p-6 space-y-6 text-gray-700">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-orange mb-2 border-b border-gray-100 pb-1">O que é?</h3>
+                            <p class="text-sm leading-relaxed">Uma ferramenta interativa de Sistema de Informação Geográfica (SIG) direto no seu navegador. Ela permite a visualização e planejamento espacial rápido sem a necessidade de instalar hardwares ou softwares complexos.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-orange mb-2 border-b border-gray-100 pb-1">Para que usar?</h3>
+                            <ul class="list-disc list-inside text-sm leading-relaxed space-y-1 text-gray-600">
+                                <li><strong>Planejamento:</strong> Delimitar com precisão a área de interesse para elaboração de orçamentos e futuros voos de drone.</li>
+                                <li><strong>Visualização:</strong> Abrir ortomosaicos (TIF/KMZ) e modelos vetoriais entregues pela Terra GIS após a conclusão do projeto.</li>
+                                <li><strong>Análise Rápida:</strong> Calcular instantaneamente a área em m² ou km² de galpões, terrenos ou lavouras desenhadas.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-orange mb-2 border-b border-gray-100 pb-1">Como usar?</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mt-2">
+                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-sm">
+                                    <strong class="flex items-center gap-2 text-brand-blue mb-1"><i data-lucide="pen-tool" class="w-4 h-4 text-brand-orange"></i> Ferramentas de Desenho</strong>
+                                    Use o menu no canto esquerdo para desenhar polígonos ou marcações sobre a área que deseja mapear.
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-sm">
+                                    <strong class="flex items-center gap-2 text-brand-blue mb-1"><i data-lucide="upload" class="w-4 h-4 text-brand-orange"></i> Carregar Arquivos</strong>
+                                    Use os botões flutuantes no topo para importar imagens de satélite/drone (TIF/KMZ) ou vetores (KML/SHP/ZIP).
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-sm">
+                                    <strong class="flex items-center gap-2 text-brand-blue mb-1"><i data-lucide="download" class="w-4 h-4 text-brand-orange"></i> Exportar Dados</strong>
+                                    No painel à direita, você pode exportar suas áreas desenhadas em formato KML/KMZ para enviar para nossa equipe.
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-sm">
+                                    <strong class="flex items-center gap-2 text-brand-blue mb-1"><i data-lucide="search" class="w-4 h-4 text-brand-orange"></i> Busca Rápida</strong>
+                                    Use a lupa no canto esquerdo para encontrar endereços, rodovias ou cidades instantaneamente.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-gray-50 border-t border-gray-100 rounded-b-2xl text-center">
+                        <button onclick="toggleWebgisInfo()" class="px-8 py-3 bg-brand-blue text-white font-bold rounded-xl hover:bg-blue-900 transition-colors shadow-lg shadow-blue-900/20">Entendi, vamos lá!</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -576,6 +637,18 @@
             const modal = document.getElementById('webgis-modal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
+        }
+
+        // Função para abrir/fechar o Informativo do WebGIS
+        function toggleWebgisInfo() {
+            const infoPanel = document.getElementById('webgis-info-panel');
+            if (infoPanel.classList.contains('hidden')) {
+                infoPanel.classList.remove('hidden');
+                infoPanel.classList.add('flex');
+            } else {
+                infoPanel.classList.add('hidden');
+                infoPanel.classList.remove('flex');
+            }
         }
 
         // Camadas base
@@ -1007,5 +1080,14 @@
 
         updateList();
     </script>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5541999990000" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-[10010] bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:scale-110 hover:shadow-2xl transition-transform duration-300 flex items-center justify-center group"
+       title="Fale conosco pelo WhatsApp">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.031 0C5.392 0 0 5.392 0 12.031c0 2.12.551 4.185 1.597 6L.231 24l6.115-1.603c1.767.95 3.754 1.452 5.684 1.452 6.638 0 12.03-5.392 12.03-12.031S18.67 0 12.031 0zm0 21.84c-1.782 0-3.528-.48-5.06-1.385l-.362-.215-3.766.986.998-3.67-.236-.375c-.996-1.583-1.521-3.411-1.521-5.308 0-5.467 4.45-9.917 9.923-9.917 5.469 0 9.919 4.45 9.919 9.917s-4.45 9.916-9.919 9.916zm5.438-7.41c-.298-.15-1.764-.87-2.036-.97-.272-.1-.47-.15-.67.15-.198.298-.767.97-.94 1.168-.172.199-.346.224-.644.075-2.03-.996-3.32-2.176-4.225-3.69-.15-.248-.016-.381.134-.53.134-.134.298-.348.448-.521.149-.174.198-.298.298-.498.1-.198.05-.373-.024-.521-.075-.15-.67-1.62-.918-2.217-.243-.584-.488-.505-.67-.514-.173-.008-.372-.01-.57-.01-.199 0-.522.075-.795.373-.273.298-1.043 1.02-1.043 2.487s1.068 2.885 1.217 3.084c.149.199 2.103 3.208 5.093 4.498.711.308 1.266.492 1.698.63.714.227 1.365.195 1.878.118.574-.086 1.764-.72 2.012-1.418.249-.697.249-1.294.174-1.418-.074-.124-.272-.198-.57-.348z"/>
+        </svg>
+    </a>
 </body>
 </html>
