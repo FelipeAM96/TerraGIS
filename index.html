@@ -66,10 +66,25 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
                 <!-- Logo -->
-                <div class="flex items-center gap-2">
-                    <i data-lucide="layers" class="text-brand-orange w-8 h-8"></i>
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <!-- Logótipo SVG Personalizado -->
+                    <svg class="w-10 h-10 transform group-hover:scale-105 transition-transform" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Camadas GIS (Terreno/Topografia) -->
+                        <path d="M24 38L42 29L24 20L6 29L24 38Z" stroke="#F97316" stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M24 46L42 37L24 28L6 37L24 46Z" fill="#F97316" fill-opacity="0.15"/>
+                        <path d="M24 46L42 37L24 28L6 37L24 46Z" stroke="#F97316" stroke-width="3" stroke-linejoin="round"/>
+                        <!-- Drone -->
+                        <circle cx="24" cy="14" r="5" fill="#0F2A4A"/>
+                        <path d="M14 8L20 11M34 8L28 11M14 20L20 17M34 20L28 17" stroke="#1D4ED8" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="14" cy="8" r="2" fill="#1D4ED8"/>
+                        <circle cx="34" cy="8" r="2" fill="#1D4ED8"/>
+                        <circle cx="14" cy="20" r="2" fill="#1D4ED8"/>
+                        <circle cx="34" cy="20" r="2" fill="#1D4ED8"/>
+                        <!-- Feixe do Scanner -->
+                        <path d="M24 14L16 29H32L24 14Z" fill="#1D4ED8" fill-opacity="0.2"/>
+                    </svg>
                     <span class="font-bold text-2xl text-brand-blue tracking-tight">Terra <span class="text-brand-orange">GIS</span></span>
-                </div>
+                </a>
                 
                 <!-- Menu Desktop -->
                 <div class="hidden md:flex items-center space-x-8">
@@ -362,10 +377,25 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
                 <!-- Info Brand -->
                 <div class="text-center md:text-left">
-                    <div class="flex items-center gap-2 justify-center md:justify-start mb-4">
-                        <i data-lucide="layers" class="text-brand-orange w-8 h-8"></i>
+                    <a href="#inicio" class="flex items-center gap-3 justify-center md:justify-start mb-4 group">
+                        <!-- Logótipo SVG Adaptado para Fundo Escuro -->
+                        <svg class="w-10 h-10 transform group-hover:scale-105 transition-transform" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Camadas GIS -->
+                            <path d="M24 38L42 29L24 20L6 29L24 38Z" stroke="#F97316" stroke-width="3" stroke-linejoin="round"/>
+                            <path d="M24 46L42 37L24 28L6 37L24 46Z" fill="#F97316" fill-opacity="0.15"/>
+                            <path d="M24 46L42 37L24 28L6 37L24 46Z" stroke="#F97316" stroke-width="3" stroke-linejoin="round"/>
+                            <!-- Drone (Branco para contraste) -->
+                            <circle cx="24" cy="14" r="5" fill="#ffffff"/>
+                            <path d="M14 8L20 11M34 8L28 11M14 20L20 17M34 20L28 17" stroke="#93C5FD" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="14" cy="8" r="2" fill="#93C5FD"/>
+                            <circle cx="34" cy="8" r="2" fill="#93C5FD"/>
+                            <circle cx="14" cy="20" r="2" fill="#93C5FD"/>
+                            <circle cx="34" cy="20" r="2" fill="#93C5FD"/>
+                            <!-- Feixe -->
+                            <path d="M24 14L16 29H32L24 14Z" fill="#ffffff" fill-opacity="0.2"/>
+                        </svg>
                         <span class="font-bold text-2xl text-white tracking-tight">Terra <span class="text-brand-orange">GIS</span></span>
-                    </div>
+                    </a>
                     <p class="text-blue-200 max-w-xs text-sm">Inteligência geográfica e levantamentos com drone para projetos que exigem rigor técnico.</p>
                 </div>
 
